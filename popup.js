@@ -212,9 +212,18 @@ var runPopup = function () {
 	});
 };
 
-
 (function () {
 	var captureButton = document.getElementById('whatToCapture');
+
+	var LoadButton = document.getElementById('Load');
+
+	LoadButton.onclick = function (event) {
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {action: 'LoadData', evidence: evidence}, function(response) {
+				console.log(response);
+			});
+		});
+	}
 
 	captureButton.onclick = function (event) {
 		let checkboxScreenshot = document.getElementById('checkboxScreenshot');
@@ -227,6 +236,7 @@ var runPopup = function () {
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 				chrome.tabs.sendMessage(tabs[0].id, {action: "getBrowserData"}, function(response) {
 				  console.log(response);
+				  local_storage = response;
 				});
 			});
 		}
