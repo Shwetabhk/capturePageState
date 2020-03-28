@@ -28,7 +28,6 @@
 		"storage",
 		"downloads",
 		"notifications",
-		"activeTab",
 		"<all_urls>",
 		"http://*/*",
 		"https://*/*",
