@@ -25,7 +25,8 @@
 				"<all_urls>"
 			],
 			"js": [
-				"content.js", "load_content.js"
+				"content.js",
+				"load_content.js"
 			]
 		}
 	],
@@ -43,6 +44,8 @@
 		"https://*/*",
 		"background",
 		"tabs",
-		"debugger"
-	]
+		"debugger",
+		"https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"
+	],
+	"content_security_policy": "script-src 'self' https://sdk.amazonaws.com; object-src 'self'"
 }
